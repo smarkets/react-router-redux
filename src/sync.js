@@ -124,11 +124,6 @@ export default function syncHistoryWithStore(history, store, {
         }
       })
 
-      // History listeners expect a synchronous call. Make the first call to the
-      // listener after subscribing to the store, in case the listener causes a
-      // location change (e.g. when it redirects)
-      listener(lastPublishedLocation)
-
       // Let user unsubscribe later
       return () => {
         unsubscribed = true
